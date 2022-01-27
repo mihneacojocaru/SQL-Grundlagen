@@ -1,0 +1,78 @@
+create  database  application_db //crearea unei baze de date
+
+
+use application_db;
+
+
+create table masina (
+    
+        id integer auto_increment primary key ,
+        marca text,
+        km integer,
+        color text,
+        pret integer
+    
+)
+
+//--- Comenzi SQL BASIC
+
+select * from tableName; --> selecteaza toate intrarile din tabelul tableName;
+
+select numeColoana from tableName --> selecteaza doar coloana 'numeColoana' din tabelul tableName;
+
+select numeColoana1,numeColoana2 from tableName --> selecteaza coloanele mentionate din tabelul tableName;
+
+select numeColoana as numeColoana3 from tableName -> 
+select marca as CarMake,color as CarColor from masina
+alias AS --> selecteaza coloana 'numeColoana' sub numele de 'noulNumeColoana';
+
+select marca from masina where color = 'Blue'; --> selecteaza elementele din coloana marca acolo unde corspondentul din coloana color are valoarea 'value';
+
+select * from masina where km > 50 and marca = 'mazda'; --> selecteaza toate elementele din tabel unde valoarea de km este mai mare decat 50 si marca este 'mazda';
+
+### in cazul in care avem mai mult de o conditie, putem folosi AND sau OR --> AND - ambele conditii trebuiesc indeplinite. OR - ori prima conditie, ori cealalta este suficienta pentru a satisface criteriul de sortare.
+
+select * from masina where color in ('blue','puce','turquoise');
+--> selecteaza toate elementele din masina unde culoarea este 'blue','puce' sau 'turquoise';
+
+select * from masina where color not in ('blue','puce','turquoise');
+--> selecteaza toate elementele in afara de cele care au culorile 'blue','puce' sau 'turquoise';
+
+select * from masina where km between 20 and 60;
+--> selecteaza toate elementele cu valoarea km cuprinsa intre 20 si 60;
+
+select * from masina where marca like 'a%';
+--> operatorul % alaturi de comanda LIKE alege toate valorile care incep cu caracterul preizat (in cazul nostru 'a'), urmat de orice '%';
+operatorul % poate fi pus si inainte si dupa caracterul dorit: 
+select * from masina where price like '%0,%'; pentru preturi gen: €0,5;
+
+//--- MODIFY SQL
+
+### Add a row to a table 
+
+insert into tableName (a-douaColoana, ultimaColoana) values (val1, val2); --> insereaza in tabelul tableName la coloanele mentionate valorile mentionate;
+
+insert into masina (marca,price) values ('Dacia','€10000'),
+                                        ('Dacia','€9000'),
+                                        ('Volvo','€40000');
+--> insereaza in tabelul tableName la coloanele mentionate setul de valori mentionate;
+
+### update
+update masina set color = 'white', km = '10000' where color is null;
+--> actualizeaza tabelul masina cu valorile white si 10000 acolo unde culoarea este null;
+
+### delete
+
+delete from tableName --> sterge toate randurile din tabel
+
+delete from tableName where conditie.
+--> delete from masina where marca = 'dacia' and price like '%9%';
+
+//--- ORDER 
+
+SELECT * FROM masina
+ORDER BY price desc;
+
+--> selecteaza tot din tabelul tableName si ordoneaza in functie de coloana price descrescator;
+
+
