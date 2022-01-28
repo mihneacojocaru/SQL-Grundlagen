@@ -76,3 +76,34 @@ ORDER BY price desc;
 --> selecteaza tot din tabelul tableName si ordoneaza in functie de coloana price descrescator;
 
 
+//+++ Exercitii
+### PeopleList
+
+1.Care este cel mai mare salariu si de cate ori apare un nume (ex. Tami);
+
+select * from PeopleList order by salary desc limit 1;
+
+select count(first_name) as 'De cate ori apare TAMI' from PeopleList where first_name = 'tami';
+
+select * from PeopleList where first_name = 'tami';
+select * from PeopleList where first_name like 'ta%'; // unde numele incepe cu ta
+
+2.Sa se stearga toate persoanele din tabel care au id nr par.
+
+delete  from PeopleList where id%2=0;
+
+3.Sa se updateze informatiile unei persoane in functie de id.
+
+update PeopleList
+set first_name='John', last_name='Doe',email='john.doe@example.com', salary='1999'
+where  id=1;
+
+4.Add a new person to the PeopleList.
+
+insert into PeopleList (first_name, last_name, email, salary) VALUES ('Jane','Peterson','jane.peterson@email.com',5000);
+
+5.Cati au salariul 1999€?
+
+select count(salary) as 'Persoane cu salariul de 1999€' from people where salary=1999;
+
+
