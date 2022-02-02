@@ -3,7 +3,6 @@ create  database  application_db //crearea unei baze de date
 
 use application_db;
 
-
 create table masina (
     
         id integer auto_increment primary key ,
