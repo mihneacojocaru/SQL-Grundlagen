@@ -124,3 +124,30 @@ set order_email = (
     where customers.id = 1000
     )
 where orders.id = 202;
+
+----Create testable
+CREATE TABLE TestTable (FirstName VARCHAR(100), LastName VARCHAR(100))
+----INSERT INTO TestTable using SELECT
+INSERT INTO TestTable (FirstName, LastName)
+SELECT FirstName, LastName
+FROM Person.Contact
+WHERE EmailPromotion = 2
+----Verify that Data in TestTable
+SELECT FirstName, LastName
+FROM TestTable
+----Clean Up Database
+DROP TABLE TestTable
+GO
+
+GO
+----Create a new table and insert into table using SELECT INSERT
+SELECT FirstName, LastName
+INTO TestTable
+FROM Person.Contact
+WHERE EmailPromotion = 2
+----Verify that Data in TestTable
+SELECT FirstName, LastName
+FROM TestTable
+----Clean Up Database
+DROP TABLE TestTable
+GO
