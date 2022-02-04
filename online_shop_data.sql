@@ -125,6 +125,11 @@ set order_email = (
     )
 where orders.id = 202;
 
+-- Add new Order Details
+
+insert into order_details (order_id, product_id, price, quantity)
+VALUES (201,4,35,1);
+
 ----Create testable
 CREATE TABLE TestTable (FirstName VARCHAR(100), LastName VARCHAR(100))
 ----INSERT INTO TestTable using SELECT

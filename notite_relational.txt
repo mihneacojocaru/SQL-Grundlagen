@@ -1,0 +1,56 @@
+//--- Relational Queries
+
+//+++ Inner Joins aka General Join:
+
+select * from likes inner join follows on likes.photo_id=follows.followee_id;
+
+### Get specific columns from a tabel where they join another table on a specific criteria. 
+
+select tags_info.id,tag_name from tags as tags_info
+inner join users as user_info 
+on tags_info.id = user_info.id;
+
+### Inner Joining from multiple tables:
+
+select users.id,users.username from users
+inner join likes on users.id = likes.photo_id
+inner join tags on users.id = tags.id;
+
+____________________________________________
+
+select *
+from users
+inner join posts
+on users.id = posts.user_id;
+
+//+++ Outer Joins
+
+### LEFT OUTER JOIN 
+
+select users.id,users.username from users
+left outer join photos
+on users.id = photos.user_id;
+
++++ How many posts does each user have
+
+select name, count(users.id) as posts_number from users
+left outer join posts
+on users.id = posts.user_id
+group by name;
+
+//+++ UNION
+
+If you have the same columns in more than one table you can query with union all of the info in the same table.
+
+select users.id,users.name
+from users union
+select posts.text,posts.posted_at from posts;
+
+//+++ UNION all
+
+Selects all table elements, even if there are duplicates.
+
+select users.name as Names from users
+union all select posts.text as Post from posts;
+
+
