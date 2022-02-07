@@ -156,3 +156,28 @@ FROM TestTable
 ----Clean Up Database
 DROP TABLE TestTable
 GO
+
+-- Add new Order 
+insert into orders(customer_id, amount, shipping_address, order_address, order_email, order_date, order_status)
+values (1002,2,'n/a','n/a','n/a',now(),'waiting');
+
+update orders
+set shipping_address = (
+    select default_shipping_address from customers
+    where customers.id = 1002
+    )
+where orders.id = 203;
+
+update orders
+set order_address = (
+    select billing_address from customers
+    where customers.id = 1002
+    )
+where orders.id = 203;
+
+update orders
+set order_email = (
+    select email from customers
+    where customers.id = 1002
+    )
+where orders.id = 203;
