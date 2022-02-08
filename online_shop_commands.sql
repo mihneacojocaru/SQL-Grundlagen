@@ -94,9 +94,6 @@ delete from customers where id = 1005;
 
 
 -- //TODO cea mai scumpa comanda a unui user.
+
 select * from order_details order by price desc limit 1;
-
-
-
-
 
