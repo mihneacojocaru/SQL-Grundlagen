@@ -1,0 +1,28 @@
+$breakpoints: (
+  "sm": 100px,
+  "md": 768px,
+  "lg": 1024px,
+);
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+$font-stack-primary: "Varela Round", sans-serif;
+$element-width: 90%;  
+$max-element-width: 300px;
+//Colors
+
+$bgr-gray: #F5F5F5;
+
+$main-blue: #435D7D;
+$main-red: #DC3545;
+$main-green: #28A745;
+$main-yellow: #FDC720;
+
+$text-black: #21252A;
+$text-blue: #637290;
+$text-gray: #A1A1A1;
+
+$table-gray: #E9E9E9;
+
+

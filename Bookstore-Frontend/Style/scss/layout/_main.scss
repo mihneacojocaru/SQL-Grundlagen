@@ -1,0 +1,65 @@
+body{
+   background-color: $bgr-gray;
+   font-family: $font-stack-primary;
+}
+
+.container{
+   background-color: white;
+   margin: 2em 1em;
+   border-radius: 5px;
+   padding-bottom: 5px;
+}
+
+.table-header{
+   border-radius: 5px 5px 0 0;
+   background-color: $main-blue;
+   color: white;
+   padding: 1em;
+   @include flexy($just:space-between);
+   button{
+      background-color: $main-green;
+      color: white;
+      border-radius: 2px;
+      border: 0;
+      font-size: small;
+      padding: 5px 15px;
+      i{
+         padding-right: 5px;
+      }
+      @include flexy($align:center);
+   }
+}
+
+table{
+   color: $text-black;
+   min-width: 95%;
+   max-width: 100%;
+   border-collapse: collapse;
+   text-align: left;
+   padding: 1em;
+   margin: 1em;
+}
+
+td,th{
+   padding: 10px;
+}
+
+tr{
+   border-top: 1px solid $table-gray;
+}
+
+
+tbody{
+   tr:hover{
+      background-color: $bgr-gray;
+      span{
+         cursor: pointer;
+      }
+   }
+   .btnEdit{
+      color: $main-yellow;
+   }
+   .btnDelete{
+      color: $main-red;
+   }
+}
