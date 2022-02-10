@@ -14,7 +14,7 @@
     <div class="container">
         <div class="table-header">
             <h2>Book Store SQL</h2>
-            <button><i class="material-icons">add_circle</i>Add New Book</button>
+            <button id="addBook"><i id="addBook" class="material-icons">add_circle</i>Add New Book</button>
         </div>
         <table>
             <thead>
@@ -86,5 +86,85 @@
             </tbody>
         </table>
     </div>
+    <div class="add-modal">
+        <div class="backdrop"></div>
+        <div class="add-book">
+            <div class="add-head">
+                <h3>Add Book</h3>
+                <span>X</span>
+            </div>
+            <div class="add-body">
+                <div class="title form-input">
+                    <label for="">Book Title</label>
+                    <input type="text">
+                </div>
+                <div class="author form-input">
+                    <label for="">Author</label>
+                    <input type="text">
+                </div>
+                <div class="release_date form-input">
+                    <label for="">Release Date</label>
+                    <input type="date">
+                </div>
+                <div class="isbn form-input">
+                    <label for="">ISBN #</label>
+                    <input type="text">
+                </div>
+            </div>
+            <div class="add-footer">
+                <button>Cancel</button>
+                <button>Add</button>
+            </div>
+        </div>
+    </div>
+    <div class="edit-modal">
+        <div class="backdrop"></div>
+        <div class="edit-book">
+            <div class="edit-head">
+                <h3>Edit Book</h3>
+                <span>X</span>
+            </div>
+            <div class="edit-body">
+                <div class="title form-input">
+                    <label for="">Book Title</label>
+                    <input type="text">
+                </div>
+                <div class="author form-input">
+                    <label for="">Author</label>
+                    <input type="text">
+                </div>
+                <div class="release_date form-input">
+                    <label for="">Release Date</label>
+                    <input type="date">
+                </div>
+                <div class="isbn form-input">
+                    <label for="">ISBN #</label>
+                    <input type="text">
+                </div>
+            </div>
+            <div class="edit-footer">
+                <button>Cancel</button>
+                <button>Save</button>
+            </div>
+        </div>
+    </div>
+    <div class="delete-modal">
+        <div class="backdrop"></div>
+        <div class="delete-book">
+            <div class="delete-head">
+                <h3>Delete Book</h3>
+                <span>X</span>
+            </div>
+            <div class="delete-body">
+                <p>Are you sure you want to delete this item?</p>
+                <p>This action cannot be undone</p>
+            </div>
+            <div class="delete-footer">
+                <button>Cancel</button>
+                <button>Delete</button>
+            </div>
+        </div>
+    </div>
+    <script src="/style.js"></script>
 </body>
 </html>

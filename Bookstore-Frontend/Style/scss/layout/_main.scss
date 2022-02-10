@@ -15,18 +15,24 @@ body{
    background-color: $main-blue;
    color: white;
    padding: 1em;
-   @include flexy($just:space-between);
+   @include flexy($just:space-between, $align: center);
    button{
       background-color: $main-green;
       color: white;
       border-radius: 2px;
-      border: 0;
+      border: 1px solid $main-blue;
       font-size: small;
       padding: 5px 15px;
       i{
          padding-right: 5px;
       }
       @include flexy($align:center);
+      &:hover{
+         cursor: pointer;
+      }
+      &:active{
+         border: 1px solid $table-gray;
+     }
    }
 }
 
@@ -58,8 +64,30 @@ tbody{
    }
    .btnEdit{
       color: $main-yellow;
+      &:active{
+         transform: scale(1.1);
+      }
    }
    .btnDelete{
       color: $main-red;
+      &:active{
+         transform: scale(1.1);
+      }
+   }
+}
+
+@include mq('md'){
+   .container{
+     // margin: 0 auto;
+      margin: 2em 5% 0 5%;
+   }
+}
+
+
+@include mq('lg'){
+   .container{
+      margin: 0 auto;
+      margin-top: 2em;
+      width: 900px;
    }
 }

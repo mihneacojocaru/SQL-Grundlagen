@@ -1,0 +1,88 @@
+.delete-modal{
+    display: none;
+    position: fixed;
+    inset: 0;
+    animation: fadeIn 0.5s;
+    @keyframes fadeIn {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+
+    .backdrop{
+        position: fixed;
+        inset: 0;
+        background-color: rgba(65, 62, 62, 0.751);
+        z-index: -1;
+    }
+    .delete-book{
+        background-color: white;
+        width: 25em;
+        position: absolute;
+        top: 2em;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 3px;
+        border: 1px solid black;
+
+        animation: translate 0.3s;
+
+        @keyframes translate {
+            0%{ top: -30em;}
+            100%{ top: 2em; }
+        }
+
+        .delete-head{
+            @include flexy($just:space-between);
+            padding: 1em;
+            color: $main-blue;
+            border-bottom: 1px solid $table-gray;
+            span{
+                cursor: pointer;
+                &:active{
+                    color: $text-gray;
+                }
+            }
+        }
+
+        .delete-body{
+            padding: 1em 2em 2em 2em;
+            border-bottom: 1px solid $table-gray;
+            p:first-child{
+                color: $text-black;
+                font-size: 16px;
+            }
+            color: $main-yellow;
+            font-size: 12px;
+            *{
+                padding: 5px 0;    
+            }
+        }
+
+        .delete-footer{
+            padding: 1.5em;
+            @include flexy($just:right);
+            background-color: $table-gray;
+            border-radius: 0 0 3px 3px;
+            button{
+                margin-right: 5px;
+                padding: 5px;
+                width: 80px;
+                border: 1px solid $table-gray;
+                border-radius: 2px;
+                background-color: $main-red;
+                color: white;
+                &:first-child{
+                    color: $text-black;
+                    background-color: $table-gray;
+                }
+                &:hover{
+                    cursor: pointer;
+                }
+                &:active{
+                    border: 1px solid $main-blue;
+                }
+            }
+
+        }
+    }
+}

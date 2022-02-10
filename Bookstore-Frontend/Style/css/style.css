@@ -352,10 +352,6 @@ template {
   box-sizing: border-box;
 }
 
-html, body {
-  position: relative;
-}
-
 body {
   background-color: #F5F5F5;
   font-family: "Varela Round", sans-serif;
@@ -375,12 +371,13 @@ body {
   padding: 1em;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .table-header button {
   background-color: #28A745;
   color: white;
   border-radius: 2px;
-  border: 0;
+  border: 1px solid #435D7D;
   font-size: small;
   padding: 5px 15px;
   display: flex;
@@ -388,6 +385,12 @@ body {
 }
 .table-header button i {
   padding-right: 5px;
+}
+.table-header button:hover {
+  cursor: pointer;
+}
+.table-header button:active {
+  border: 1px solid #E9E9E9;
 }
 
 table {
@@ -417,8 +420,314 @@ tbody tr:hover span {
 tbody .btnEdit {
   color: #FDC720;
 }
+tbody .btnEdit:active {
+  transform: scale(1.1);
+}
 tbody .btnDelete {
   color: #DC3545;
+}
+tbody .btnDelete:active {
+  transform: scale(1.1);
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin: 2em 5% 0 5%;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    margin: 0 auto;
+    margin-top: 2em;
+    width: 900px;
+  }
+}
+.add-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.add-modal .backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(65, 62, 62, 0.751);
+  z-index: -1;
+}
+.add-modal .add-book {
+  background-color: white;
+  width: 25em;
+  position: absolute;
+  top: 2em;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  border: 1px solid black;
+  animation: translate 0.3s;
+}
+@keyframes translate {
+  0% {
+    top: -30em;
+  }
+  100% {
+    top: 2em;
+  }
+}
+.add-modal .add-book .add-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  color: #435D7D;
+  border-bottom: 1px solid #E9E9E9;
+}
+.add-modal .add-book .add-head span {
+  cursor: pointer;
+}
+.add-modal .add-book .add-head span:active {
+  color: #A1A1A1;
+}
+.add-modal .add-book .add-body {
+  padding: 1em;
+  border-bottom: 1px solid #E9E9E9;
+}
+.add-modal .add-book .add-body .form-input {
+  display: flex;
+  flex-direction: column;
+  color: #21252A;
+}
+.add-modal .add-book .add-body .form-input label {
+  color: #637290;
+}
+.add-modal .add-book .add-body .form-input input {
+  border: 1px solid #A1A1A1;
+  border-radius: 3px;
+  margin: 10px 0;
+  padding: 3px;
+  height: 2em;
+}
+.add-modal .add-book .add-footer {
+  padding: 1.5em;
+  display: flex;
+  justify-content: right;
+  background-color: #E9E9E9;
+  border-radius: 0 0 3px 3px;
+}
+.add-modal .add-book .add-footer button {
+  margin-right: 5px;
+  padding: 5px;
+  width: 80px;
+  border: 1px solid #E9E9E9;
+  border-radius: 2px;
+  background-color: #28A745;
+  color: white;
+}
+.add-modal .add-book .add-footer button:first-child {
+  color: #21252A;
+  background-color: #E9E9E9;
+}
+.add-modal .add-book .add-footer button:hover {
+  cursor: pointer;
+}
+.add-modal .add-book .add-footer button:active {
+  border: 1px solid #435D7D;
+}
+
+.edit-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.edit-modal .backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(65, 62, 62, 0.751);
+  z-index: -1;
+}
+.edit-modal .edit-book {
+  background-color: white;
+  width: 25em;
+  position: absolute;
+  top: 2em;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  border: 1px solid black;
+  animation: translate 0.3s;
+}
+@keyframes translate {
+  0% {
+    top: -30em;
+  }
+  100% {
+    top: 2em;
+  }
+}
+.edit-modal .edit-book .edit-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  color: #435D7D;
+  border-bottom: 1px solid #E9E9E9;
+}
+.edit-modal .edit-book .edit-head span {
+  cursor: pointer;
+}
+.edit-modal .edit-book .edit-head span:active {
+  color: #A1A1A1;
+}
+.edit-modal .edit-book .edit-body {
+  padding: 1em;
+  border-bottom: 1px solid #E9E9E9;
+}
+.edit-modal .edit-book .edit-body .form-input {
+  display: flex;
+  flex-direction: column;
+  color: #21252A;
+}
+.edit-modal .edit-book .edit-body .form-input label {
+  color: #637290;
+}
+.edit-modal .edit-book .edit-body .form-input input {
+  border: 1px solid #A1A1A1;
+  border-radius: 3px;
+  margin: 10px 0;
+  padding: 3px;
+  height: 2em;
+}
+.edit-modal .edit-book .edit-footer {
+  padding: 1.5em;
+  display: flex;
+  justify-content: right;
+  background-color: #E9E9E9;
+  border-radius: 0 0 3px 3px;
+}
+.edit-modal .edit-book .edit-footer button {
+  margin-right: 5px;
+  padding: 5px;
+  width: 80px;
+  border: 1px solid #E9E9E9;
+  border-radius: 2px;
+  background-color: #28A745;
+  color: white;
+}
+.edit-modal .edit-book .edit-footer button:first-child {
+  color: #21252A;
+  background-color: #E9E9E9;
+}
+.edit-modal .edit-book .edit-footer button:hover {
+  cursor: pointer;
+}
+.edit-modal .edit-book .edit-footer button:active {
+  border: 1px solid #435D7D;
+}
+
+.delete-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.delete-modal .backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(65, 62, 62, 0.751);
+  z-index: -1;
+}
+.delete-modal .delete-book {
+  background-color: white;
+  width: 25em;
+  position: absolute;
+  top: 2em;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  border: 1px solid black;
+  animation: translate 0.3s;
+}
+@keyframes translate {
+  0% {
+    top: -30em;
+  }
+  100% {
+    top: 2em;
+  }
+}
+.delete-modal .delete-book .delete-head {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  color: #435D7D;
+  border-bottom: 1px solid #E9E9E9;
+}
+.delete-modal .delete-book .delete-head span {
+  cursor: pointer;
+}
+.delete-modal .delete-book .delete-head span:active {
+  color: #A1A1A1;
+}
+.delete-modal .delete-book .delete-body {
+  padding: 1em 2em 2em 2em;
+  border-bottom: 1px solid #E9E9E9;
+  color: #FDC720;
+  font-size: 12px;
+}
+.delete-modal .delete-book .delete-body p:first-child {
+  color: #21252A;
+  font-size: 16px;
+}
+.delete-modal .delete-book .delete-body * {
+  padding: 5px 0;
+}
+.delete-modal .delete-book .delete-footer {
+  padding: 1.5em;
+  display: flex;
+  justify-content: right;
+  background-color: #E9E9E9;
+  border-radius: 0 0 3px 3px;
+}
+.delete-modal .delete-book .delete-footer button {
+  margin-right: 5px;
+  padding: 5px;
+  width: 80px;
+  border: 1px solid #E9E9E9;
+  border-radius: 2px;
+  background-color: #DC3545;
+  color: white;
+}
+.delete-modal .delete-book .delete-footer button:first-child {
+  color: #21252A;
+  background-color: #E9E9E9;
+}
+.delete-modal .delete-book .delete-footer button:hover {
+  cursor: pointer;
+}
+.delete-modal .delete-book .delete-footer button:active {
+  border: 1px solid #435D7D;
 }
 
 /*# sourceMappingURL=style.css.map */
